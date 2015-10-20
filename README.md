@@ -10,7 +10,7 @@ from a pool of NTP (Network Time Protocol) servers.
 ## Hardware Parts ##
 
 This project uses the same hardware connected in the same way as the
-[esp-pcd-weather](https://github.com/bbx10/esp-pcd-weather) project.
+[esp-pcd-weather](http://x10linux.blogspot.com/2015/09/display-weather-on-small-lcd-using.html) project.
 
 * [Adafruit Huzzah ESP8266](https://www.adafruit.com/products/2471)
 * [Adafruit PCD8544/5110 display](https://www.adafruit.com/product/338)
