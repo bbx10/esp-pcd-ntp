@@ -55,8 +55,8 @@ SOFTWARE.
 #include <Adafruit_GFX.h>
 #include <Adafruit_PCD8544.h>
 
-const char ssid[] = "********";         //  your network SSID (name)
-const char pass[] = "***************";  // your network password
+static const char ssid[] = "********";      //  your network SSID (name)
+static const char pass[] = "********";      // your network password
 
 /* Don't hardwire the IP address or we won't get the benefits of the pool.
  *  Lookup the IP address for the host name instead */
@@ -83,13 +83,14 @@ void setup()
 {
   Serial.begin(115200);
 
-  // Backlight control on pin 15 at 25% (256/1024).
-  analogWrite(15, 256);
   // Initialize LCD
   display.begin();
   display.setContrast(50);
   display.setTextSize(1);
   display.setTextColor(BLACK);
+  display.clearDisplay();
+  display.print("Connecting...");
+  display.display();
 
   Serial.println(F("ESP8266 NTP clock on PCD8544 LCD display"));
   Serial.print(F("Connecting to "));
@@ -120,6 +121,15 @@ void setup()
   Serial.println(F("waiting for sync"));
   setSyncProvider(getNtpTime);
   setSyncInterval(5 * 60);
+
+  // If the analogWrite is moved up too early in setup(), it triggers
+  // a crash. Works OK here.
+  // If crashing persists, turn the backlight on using digitalWrite
+  // like this.
+  // pinMode(15, OUTPUT);
+  // digitalWrite(15, HIGH);
+  // Backlight control on pin 15 at 25% (256/1024).
+  analogWrite(15, 256);
 }
 
 void loop()
