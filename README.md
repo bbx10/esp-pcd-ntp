@@ -46,3 +46,12 @@ RX  (white)|TX         |           |Serial data to ESP from IDE
   minutes. In between calls to the NTP server, the library uses the millis()
   function to update the date and time. The NTP part of this program is based
   on the Time_NTP example.
+
+## Latest test build ##
+
+The following software configuration was tested on Mar 23, 2016.
+
+* Arduino IDE 1.6.8
+* ESP8266 board package 2.1.0
+* Adafruit GFX library 1.1.5
+* Time library 1.5

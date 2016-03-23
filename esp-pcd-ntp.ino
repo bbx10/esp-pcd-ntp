@@ -187,6 +187,7 @@ void digitalClockDisplay() {
 
   display.clearDisplay();
   display.setTextSize(1);
+  display.setTextWrap(false);
   display.printf("%s %02d %02d %04d\n",
                  dayOfWeek, tm.Month, tm.Day, tm.Year + 1970);
   display.setTextSize(2);
